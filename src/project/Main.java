@@ -1,4 +1,4 @@
-package com.company;
+package project;
 
 public class Main {
 
@@ -46,4 +46,28 @@ public class Main {
             System.out.print(arr[i]+" ");
         }
     }
+
+    public static void quickSort(int arr[], int start, int stop ) {
+        if (stop == 0)
+            return;
+        if (start >= stop)
+            return;
+
+        int ind = start;
+        for (int i = start + 1; i < stop; ++i) {
+            if (arr[i] < arr[ind]) {
+                int temp = arr[i];
+                arr[i] = arr[ind];
+                arr[ind] = temp;
+                ind = i;
+            }
+        }
+        quickSort(arr, 0, ind);
+        //quickSort(arr, ind+1, arr.length);
+
+        for (int i = 0; i < arr.length; ++i) {
+            System.out.println(arr[i]);
+        }
+    }
+
 }
