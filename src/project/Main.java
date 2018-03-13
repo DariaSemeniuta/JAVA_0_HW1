@@ -12,10 +12,15 @@ public class Main {
         bubbleSort(arr);
         
         quickSort(arr, 0, arr.length );
-      
+
         for(int i=0; i < arr.length ; ++i){
             System.out.println(arr[i]);
         }
+
+        int[] arr2 = {0, 1, 3, 6, 7, 9};
+
+        int indx = binarySearch(arr2, 7, 0, arr2.length-1);
+        System.out.println("Index = "+indx);
     }
 
     private static int findMin(int[] arr){
@@ -72,5 +77,26 @@ public class Main {
         quickSort(arr, start, ind);
         quickSort(arr, ind+1, arr.length);
     }
+
+    public static void mergeSort(){
+
+    }
+
+    public static int binarySearch(int[] arr, int element, int left, int right){
+
+        int indx = (right + left)/2;
+        if(arr[indx] != element) {
+
+            if (element < arr[indx])
+                indx = binarySearch(arr, element, left, indx);
+            if (element > arr[indx])
+                indx = binarySearch(arr, element, indx + 1, right);
+        }
+
+        return indx;
+
+    }
+
+
 
 }
