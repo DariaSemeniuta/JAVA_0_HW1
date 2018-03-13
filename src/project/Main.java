@@ -8,7 +8,14 @@ public class Main {
         int max = findMax(arr);
         System.out.println("Min of array is "+ min );
         System.out.println("Max of array is "+ max );
+        
         bubbleSort(arr);
+        
+        quickSort(arr, 0, arr.length );
+      
+        for(int i=0; i < arr.length ; ++i){
+            System.out.println(arr[i]);
+        }
     }
 
     private static int findMin(int[] arr){
@@ -62,12 +69,8 @@ public class Main {
                 ind = i;
             }
         }
-        quickSort(arr, 0, ind);
-        //quickSort(arr, ind+1, arr.length);
-
-        for (int i = 0; i < arr.length; ++i) {
-            System.out.println(arr[i]);
-        }
+        quickSort(arr, start, ind);
+        quickSort(arr, ind+1, arr.length);
     }
 
 }
